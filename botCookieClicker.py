@@ -36,6 +36,7 @@ sg.theme('DarkAmber')
 
 layout = [ [sg.Text("Welcome to the Cookie Clicker Bot!! To stop the bot just press Q")],
             [sg.Text("How much clicks do you want?"), sg.InputText()],
+            [sg.Text("Calibrate cookie position (put your mouse on the center of the cookie after click on CALIBRATE and press S)"), sg.Button("CALIBRATE")],
             [sg.Button('START'), sg.Button('CANCEL')] ]
 
 
@@ -53,6 +54,15 @@ while True:
 
         else:
             sg.popup("Hey, you are crazy?? Please type a number", keep_on_top=True)
+
+    if event == 'CALIBRATE':
+        for i in range(1000000000000000000000000):
+            time.sleep(0.01)
+            if keyboard.is_pressed('s'):
+                cookie.x = pyautogui.position().x
+                cookie.y = pyautogui.position().y
+                sg.popup("Calibrate suscessfully!!", keep_on_top=True)
+                break
 
         
 
